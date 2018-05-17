@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import PagedUserList from '../containers/PagedUserList';
+
 export default function Example() {
     return (
         <div className="container">
@@ -12,6 +14,8 @@ export default function Example() {
                         <div className="card-body">
                             I'm an example component!
                         </div>
+
+                        <PagedUserList />
                     </div>
                 </div>
             </div>
