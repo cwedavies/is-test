@@ -67280,15 +67280,56 @@ function UserList(_ref) {
   var users = _ref.users;
 
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'ul',
-    null,
-    users.map(function (user) {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'li',
-        { key: user.id },
-        user.username
-      );
-    })
+    "table",
+    { className: "table table-sm table-hover" },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "thead",
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "tr",
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "th",
+          null,
+          "Username"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "th",
+          null,
+          "Email"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "th",
+          null,
+          "Created At"
+        )
+      )
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "tbody",
+      null,
+      users.map(function (user) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "tr",
+          { key: user.id },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "td",
+            null,
+            user.username
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "td",
+            null,
+            user.email
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "td",
+            null,
+            user.created_at
+          )
+        );
+      })
+    )
   );
 }
 
