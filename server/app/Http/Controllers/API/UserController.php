@@ -29,17 +29,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'username' => 'bail|required|max:255|unique:users',
             'email' => 'bail|required|email|max:255|unique:users',
-            'user_role' => 'bail|required|integer|exists:user_roles,id'
+            'user_roles_id' => 'bail|required|integer|exists:user_roles,id',
+            'addresses.*.address' => 'bail|required|string|max:255',
+            'addresses.*.province' => 'bail|required|string|max:255',
+            'addresses.*.city' => 'bail|required|string|max:255',
+            'addresses.*.country' => 'bail|required|string|max:255',
+            'addresses.*.postal_code' => 'bail|required|string|max:255',
         ]);
 
-        $user = new User;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->user_roles_id = $request->user_role;
-        $user->save();
+        $user = User::create($data);
+        if (array_key_exists('addresses', $data)) {
+            $user->addresses()->createMany($data['addresses']);
+        }
 
         return new UserResource($user->load('role', 'addresses'));
     }
@@ -64,7 +68,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate([
+        $data = $request->validate([
             'username' => [
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
@@ -74,14 +78,10 @@ class UserController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-            'user_role' => 'integer|exists:user_roles,id'
+            'user_roles_id' => 'integer|exists:user_roles,id'
         ]);
 
-        $user->update(array_filter([
-            'username' => $request->username,
-            'email' => $request->email,
-            'user_roles_id' => $request->user_role
-        ]));
+        $user->update($data);
 
         return new UserResource($user->load('role', 'addresses'));
     }
