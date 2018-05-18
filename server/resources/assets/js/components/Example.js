@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import PagedUserList from '../containers/PagedUserList';
+import AddUser from '../containers/AddUser';
 
 export default function Example() {
     return (
@@ -17,6 +18,7 @@ export default function Example() {
 
                         <PagedUserList />
                     </div>
+                    <AddUser />
                 </div>
             </div>
         </div>

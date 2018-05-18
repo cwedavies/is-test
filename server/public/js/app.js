@@ -66580,6 +66580,8 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_PagedUserList__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_AddUser__ = __webpack_require__(430);
+
 
 
 
@@ -66609,7 +66611,8 @@ function Example() {
                         'I\'m an example component!'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__containers_PagedUserList__["a" /* default */], null)
-                )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__containers_AddUser__["a" /* default */], null)
             )
         )
     );
@@ -67329,6 +67332,79 @@ function UserList(_ref) {
           )
         );
       })
+    )
+  );
+}
+
+/***/ }),
+/* 430 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(391);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])()(AddUser));
+
+function AddUser(_ref) {
+  var dispatch = _ref.dispatch;
+
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'form',
+    { className: 'card' },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'card-body' },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'form-group' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'label',
+          null,
+          'Username'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control' })
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'form-group' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'label',
+          null,
+          'Email'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control' })
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'form-group' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'label',
+          null,
+          'User Role'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'select',
+          { className: 'form-control' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: '1' },
+            'Admin'
+          )
+        )
+      )
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'card-footer' },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'button',
+        { className: 'btn btn-primary', type: 'submit' },
+        'Submit'
+      )
     )
   );
 }
