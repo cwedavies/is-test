@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection(User::paginate());
+        return UserResource::collection(User::with('role')->paginate());
     }
 
     /**
@@ -41,7 +41,7 @@ class UserController extends Controller
         $user->user_roles_id = $request->user_role;
         $user->save();
 
-        return new UserResource($user);
+        return new UserResource($user->load('role'));
     }
 
     /**
@@ -52,7 +52,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return new UserResource($user);
+        return new UserResource($user->load('role'));
     }
 
     /**
@@ -83,7 +83,7 @@ class UserController extends Controller
             'user_roles_id' => $request->user_role
         ]));
 
-        return new UserResource($user);
+        return new UserResource($user->with('role'));
     }
 
     /**
@@ -95,6 +95,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return response('', 204);
+        return response()->json(null, 204);
     }
 }
