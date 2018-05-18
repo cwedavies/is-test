@@ -16,3 +16,4 @@ use App\Http\API\UserController;
 
 Route::apiResource('users', 'API\\UserController');
 Route::apiResource('userroles', 'API\\UserRoleController')->only('index', 'show');
+Route::apiResource('users.addresses', 'API\\AddressController');
