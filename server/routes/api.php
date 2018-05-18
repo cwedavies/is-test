@@ -14,8 +14,5 @@ use App\Http\API\UserController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::apiResource('users', 'API\\UserController');
+Route::apiResource('userroles', 'API\\UserRoleController')->only('index', 'show');
